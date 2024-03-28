@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login</title>
+
+  <style>
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family:'Times New Roman', Times, serif;
+      background-image: url(./userlogin.png); 
+      background-size: cover;
+      background-position: center;
+      background-color: #f8f9fa;
+      
+      height: 100vh;
+      display: flex;
+     margin-left: 15%;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      
+     
+    }
+
+    .login-section {
+      background: #fff; /* White background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      max-width: 400px; /* Limiting the width of the login section */
+      width: 100%;
+    }
+
+    h2 {
+      color: #333; 
+      font-size: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333; 
+      font-size: 20px;
+      
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: calc(100% - 22px); /* Adjusting for input padding and border */
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc; /* Light gray border */
+      outline: none;
+    }
+
+    button[type="submit"] {
+      width: calc(100% - 22px); /* Adjusting for button padding */
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #54e23e; /* Blue background color */
+      color: #fff; /* White text color */
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  </style>
+   <script>
+        function showAlert(message) {
+            alert(message);
+            window.location.href = 'userlogin.html'; // Redirect to modifytask.html
+        }
+    </script>
+</head>
+<body>
+  <div class="container">
+    
+
+    <div class="login-section user-login">
+      <h2>User Login</h2>
+      <form action="userlogin" method="post" id="login-form">
+        <label for="user-username">Account Number:</label>
+        <input type="text" id="user-username" name="username" required>
+        <label for="user-password">Password:</label>
+        <input type="password" id="user-password" name="password" required>
+    <button type="submit">Login</button>
+      </form>
+      <a href="reset.html">Reset pasword</a>
+    </div>
+  </div>
+   <script>
+        // Get the message from the URL parameters
+        var urlParams = new URLSearchParams(window.location.search);
+        var message = urlParams.get('message');
+
+        // Set the message in the error-message element
+       // alert("Invalid username or password")
+    </script>
+</body>
+</html>
