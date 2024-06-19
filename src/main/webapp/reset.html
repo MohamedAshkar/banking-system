@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <style>
+        body {
+            
+             font-family: 'Times New Roman', Times, serif;
+            background-image: url(./all2.png);
+      
+      
+      background-size: cover;
+      background-position: center;
+}
+        h1{
+            margin-left: 43%;
+            color: white;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            padding-right: 40px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+        
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+            background-color: red;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+
+        .strength {
+            font-size: 0.8em;
+        }
+
+        .strong {
+            color: green;
+        }
+
+        .weak {
+            color: red;
+        }
+    </style>
+    <script>
+        function showAlert(message) {
+            alert(message);
+            window.location.href = 'reset.html'; // Redirect to modifytask.html
+        }
+    </script>
+</head>
+<body>
+    <h1>Reset Password</h1>
+    <form action="reset" method="post" onsubmit="return validateForm()">
+        <label for="account_no">Account Number:</label>
+        <input type="text" id="account_no" name="account_no" required onblur="validateField('account_no')">
+        <div id="account_no_error" class="error"></div>
+        <br>
+        <label for="old_password">Old Password:</label>
+        <input type="password" id="old_password" name="old_password" required onblur="validateField('old_password')">
+        <div id="old_password_error" class="error"></div>
+        <br>
+        <label for="new_password">New Password:</label>
+        <input type="password" id="new_password" name="new_password" required oninput="checkPasswordStrength()" onblur="validateField('new_password')">
+        <div id="new_password_strength" class="strength"></div>
+        <div id="new_password_error" class="error"></div>
+        <br>
+        <label for="confirm_password">Confirm New Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required onblur="validateField('confirm_password')">
+        <div id="confirm_password_error" class="error"></div>
+        <br>
+        <button type="submit">Reset Password</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var valid = true;
+
+            valid = validateField('account_no') && valid;
+            valid = validateField('old_password') && valid;
+            valid = validateField('new_password') && valid;
+            valid = validateField('confirm_password') && valid;
+
+            return valid;
+        }
+
+        function validateField(fieldName) {
+            var field = document.getElementById(fieldName);
+            var errorDiv = document.getElementById(fieldName + "_error");
+
+            if (!field.value) {
+                errorDiv.innerHTML = "This field is required";
+                return false;
+            } else {
+                errorDiv.innerHTML = "";
+            }
+
+            return true;
+        }
+
+        function checkPasswordStrength() {
+            var password = document.getElementById("new_password").value;
+            var strengthDiv = document.getElementById("new_password_strength");
+
+            var hasLowerCase = /[a-z]/.test(password);
+            var hasUpperCase = /[A-Z]/.test(password);
+            var hasNumbers = /\d/.test(password);
+            var hasSpecialChars = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password);
+            var isLengthValid = password.length >= 8;
+
+            if (isLengthValid && hasLowerCase && hasUpperCase && hasNumbers && hasSpecialChars) {
+                strengthDiv.innerHTML = "Strong Password";
+                strengthDiv.className = "strength strong";
+                return true;
+            } else {
+                strengthDiv.innerHTML = "Weak Password";
+                strengthDiv.className = "strength weak";
+                return false;
+            }
+        }
+    </script>
+    <div id="error_message" class="error"></div>
+</body>
+</html>

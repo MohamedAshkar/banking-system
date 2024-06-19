@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-image: url(./frontpage.png);
+     
+      background-repeat: no-repeat;
+      background-size: cover; 
+      display: flex;
+      margin-left: 200px;
+      align-items: center;
+      height: 100vh;
+      
+    }
+    
+    .container {
+      text-align: center;
+      background-color:transparent;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      
+
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #151111;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #admin-btn {
+      background-color: #9C9DF7;
+      color: rgb(0, 0, 0);
+    }
+
+    #user-btn {
+      background-color: #9C9DF7;
+      color: black;
+    }
+    #admin-btn:hover{
+        background-color: #ccc7c7;
+    }
+    #user-btn:hover{
+        background-color: #ccc7c7;
+    }
+
+    img {
+      width: 150px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome Back!</h1>
+    <h1>Login</h1>
+   <a href="./adminlogin.html"><button id="admin-btn">Admin Login</button></a> 
+   <a href="./userlogin.html"><button id="user-btn">Customer Login</button></a> 
+   
+  </div>
+</body>
+</html>
